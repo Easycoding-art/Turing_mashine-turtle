@@ -1,0 +1,5 @@
+S~>~RS
+Sa>bRS
+Sb>aRS
+Sc>cRS
+S*>*H&

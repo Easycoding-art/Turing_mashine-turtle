@@ -1,0 +1,5 @@
+blue turtle
+a[>{l}5]
+c[{a}3]
+{c{l}2}10
+end
