@@ -3,7 +3,9 @@ from emulator import Mashine
 import random
 sg.theme('BluePurple')
 
-layout = [[sg.Input(key='-IN-')],
+layout = [[sg.Text('Band:')],
+          [sg.Input(key='-IN-')],
+          [sg.Text('Alphabet:')],
           [sg.Input(key='ALPHABET')],
           [sg.Checkbox('Random band',  default=False, key='AUTO')],
           [sg.Text('Result:'), sg.Text(size=(15,1), key='-OUTPUT-')],
@@ -20,7 +22,6 @@ while True:
         commands.append(text)
 while True:  # Event Loop
     event, values = window.read()
-    print(event, values)
     if event == sg.WIN_CLOSED or event == 'Exit':
         break
     if event == 'Play':
