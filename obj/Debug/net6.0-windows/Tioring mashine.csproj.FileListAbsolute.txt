@@ -13,3 +13,18 @@ C:\Users\vorpv\OneDrive\Рабочий стол\Tioring mashine\obj\Debug\net6.0
 C:\Users\vorpv\OneDrive\Рабочий стол\Tioring mashine\obj\Debug\net6.0-windows\Tioring mashine.pdb
 C:\Users\vorpv\OneDrive\Рабочий стол\Tioring mashine\obj\Debug\net6.0-windows\Tioring mashine.genruntimeconfig.cache
 C:\Users\vorpv\OneDrive\Рабочий стол\Tioring mashine\obj\Debug\net6.0-windows\ref\Tioring mashine.dll
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\bin\Debug\net6.0-windows\Tioring mashine.exe
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\bin\Debug\net6.0-windows\Tioring mashine.deps.json
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\bin\Debug\net6.0-windows\Tioring mashine.runtimeconfig.json
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\bin\Debug\net6.0-windows\Tioring mashine.dll
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\bin\Debug\net6.0-windows\Tioring mashine.pdb
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\obj\Debug\net6.0-windows\Tioring mashine.csproj.AssemblyReference.cache
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\obj\Debug\net6.0-windows\Tioring mashine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\obj\Debug\net6.0-windows\Tioring mashine.AssemblyInfoInputs.cache
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\obj\Debug\net6.0-windows\Tioring mashine.AssemblyInfo.cs
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\obj\Debug\net6.0-windows\Tioring mashine.csproj.CoreCompileInputs.cache
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\obj\Debug\net6.0-windows\Tioring mashine.dll
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\obj\Debug\net6.0-windows\refint\Tioring mashine.dll
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\obj\Debug\net6.0-windows\Tioring mashine.pdb
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\obj\Debug\net6.0-windows\Tioring mashine.genruntimeconfig.cache
+C:\Users\vorpv\OneDrive\Рабочий стол\Turing_mashine-turtle\obj\Debug\net6.0-windows\ref\Tioring mashine.dll

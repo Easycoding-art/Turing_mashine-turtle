@@ -1,6 +1,13 @@
 import turtle
+
 def analyze(line) :
-    if list(line)[0] == ">" :
+    if list(line)[0] == "#" or list(line)[0] == "\n":
+        pass
+    elif line.split(" ")[0] == "set" :
+        reset = line.replace("\n", "").split(' ')
+        turtle.pencolor(reset[1])
+        turtle.shape(reset[2])
+    elif list(line)[0] == ">" :
         turtle.forward(20)
     elif list(line)[0] == "<" :
         turtle.backward(20)
