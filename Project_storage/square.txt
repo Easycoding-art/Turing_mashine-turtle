@@ -1,5 +1,15 @@
 blue turtle
-a[>{l}5]
-c[{a}3]
-{c{l}2}10
+#turn to 90 degree
+t[{l}6]
+#write line
+h[t{>}5]
+#draw square
+s[{h}4]
+s
+#change coordinates and character
+set red arrow
+to 120 100
+
+#draw again
+s
 end

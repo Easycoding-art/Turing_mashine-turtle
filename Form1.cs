@@ -65,7 +65,7 @@ public partial class Form1 : Form
             saving_project_name_value.Size = new Size(325, 90);
             saving_project_name_value.Text = "Имя_проекта";
             saving_project_name_value.BackColor = Color.OrangeRed;
-            saving_project_name_value.ForeColor = Color.OliveDrab;
+            saving_project_name_value.ForeColor = Color.White;
             safe.Controls.Add(saving_project_name_value);
 
             saving_error = new TextBox();
@@ -106,7 +106,7 @@ public partial class Form1 : Form
             loading_project_name_value.Size = new Size(325,90);
             loading_project_name_value.Text = "Имя_проекта";
             loading_project_name_value.BackColor = Color.OrangeRed;
-            loading_project_name_value.ForeColor = Color.OliveDrab;
+            loading_project_name_value.ForeColor = Color.White;
             load.Controls.Add(loading_project_name_value);
 
             loading_error = new TextBox();
