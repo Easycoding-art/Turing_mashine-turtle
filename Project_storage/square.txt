@@ -9,7 +9,11 @@ s
 #change coordinates and character
 set red arrow
 to 120 100
-
+#wait 5 seconds
+{w}5
 #draw again
 s
+{w}2
+#clear screen
+&
 end

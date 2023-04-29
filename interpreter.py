@@ -1,4 +1,5 @@
 import turtle
+import time
 
 def perform_commands(line) :
     commands = []
@@ -70,6 +71,8 @@ def analyze(line) :
         task = ''.join(command[1 : i])+'\n'
         for j in range(0, count) :
             perform_commands(task)
+    elif list(line)[0] == "w" :
+        time.sleep(1)
     elif list(line)[0] == "r" :
         turtle.right(15)
     elif list(line)[0] == "l" :
@@ -78,7 +81,7 @@ def analyze(line) :
         turtle.up()
     elif list(line)[0] == "~" :
         turtle.down()
-    elif list(line)[0] not in "<>{}~^rl#$" and len(list(line)) <= 2 :
+    elif list(line)[0] not in "<>{}~^rl#&w" and len(list(line)) <= 2 :
         f = 0
         while True:
             line = line.replace('\n', '')
