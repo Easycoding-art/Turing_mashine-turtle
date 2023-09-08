@@ -16,4 +16,6 @@ s
 {w}2
 #clear screen
 &
+include figures
+S
 end

@@ -5,6 +5,7 @@ import sys
 class Interpreter() :
     def __init__(self) :
         self.value_dict = {}
+        self.libraries = []
     def perform_commands(self, line) :
         commands = []
         arr = list(line)
@@ -145,9 +146,21 @@ class Interpreter() :
             sys.exit(1)
         self.value_dict.update({value : str(eval(real))})
 
+    def get_from_libraries(self) :
+        result = []
+        for lib in self.libraries :
+            file = open('Project_storage/' + lib + '.txt', 'r')
+            lines = file.readlines()
+            result.extend(lines)
+            file.close()
+        return result
+
     def analyze(self, line) :
-        if list(line)[0] == "#" or list(line)[0] == "\n":
+        if list(line)[0] == "#" or list(line)[0] == "\n" :
             pass
+        elif line.split(" ")[0] =='include' :
+            parse = line.replace("\n", "").split(' ')
+            self.libraries.append(parse[1])
         elif line.split(" ")[0] == "set" :
             reset = line.replace("\n", "").split(' ')
             turtle.pencolor(reset[1])
@@ -209,18 +222,17 @@ class Interpreter() :
         elif list(line)[0] == "~" :
             turtle.down()
         elif list(line)[0] not in '<>{}~^rl#&w()|' and len(list(line)) <= 2 :
-            f = 0
-            while True:
-                line = line.replace('\n', '')
-                if list(line)[0] == list(self.commands[f])[0] :
-                    sp = self.commands[f].split('[')
+            line = line.replace('\n', '')
+            all_commands = []
+            all_commands.extend(self.get_from_libraries())
+            all_commands.extend(self.commands)
+            for comm in all_commands:
+                if list(line)[0] == list(comm)[0] and len(list(comm)) > 0:
+                    sp = comm.split('[')
                     if line == sp[0] :
                         func = sp[1].replace(']', '')
                         self.perform_commands(func + '\n')
                     break
-                elif f +1 >=len(self.commands) :
-                    break
-                f+=1
         else :
             if '=' in line :
                 self.assignment(line)

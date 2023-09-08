@@ -1,0 +1,5 @@
+blue arrow
+#square
+S[{{l}6{>}5}4]
+#round
+R[{{>l}3}10]
