@@ -233,6 +233,37 @@ class Interpreter() :
                         func = sp[1].replace(']', '')
                         self.perform_commands(func + '\n')
                     break
+        elif list(line)[0] not in '<>{}~^rl#&w()|' and ':' in line :
+            line = line.replace('\n', '')
+            all_commands = []
+            all_commands.extend(self.get_from_libraries())
+            all_commands.extend(self.commands)
+            arg_values = line.split(':', 1)[1].split(',')
+            for comm in all_commands:
+                if list(line)[0] == list(comm)[0] and len(list(comm)) > 0:
+                    comm = comm.replace('\n', '')
+                    sp = comm.split('[')
+                    if line[0] == sp[0] :
+                        announcement = sp[1].split(']')
+                        func = announcement[0]
+                        args = announcement[1].split(',')
+                        for a in range(len(args)) :
+                            if arg_values[a] in self.value_dict :
+                                replacement = self.value_dict.get(arg_values[a])
+                            elif ('.x' in arg_values[a] or '.y' in arg_values[a]) and 'now' not in arg_values[a] :
+                                replacement = self.get_field(arg_values[a])
+                            elif 'now' in arg_values[a] :
+                                if '.x' in arg_values[a] :
+                                    replacement = str(int(turtle.xcor()))
+                                elif '.y' in arg_values[a] :
+                                    replacement = str(int(turtle.ycor()))
+                                else :
+                                    replacement = "("+str(int(turtle.xcor()))+", "+str(int(turtle.ycor()))+")"
+                            else :
+                                replacement = arg_values[a]
+                            func = func.replace(args[a], replacement)
+                        self.perform_commands(func + '\n')
+                    break
         else :
             if '=' in line :
                 self.assignment(line)

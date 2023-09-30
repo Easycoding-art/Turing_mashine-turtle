@@ -1,5 +1,7 @@
 blue arrow
-#square
-S[{{l}6{>}5}4]
+#square with side n
+S[{{l}6{>}n}4]n
 #round
 R[{{>l}3}10]
+#Create something in (x,y) using f function
+F["to x y"f]x,y,f

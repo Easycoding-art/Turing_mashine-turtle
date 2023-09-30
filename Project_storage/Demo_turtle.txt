@@ -17,5 +17,5 @@ s
 #clear screen
 &
 include figures
-S
+F:10,now.y,"S:10"
 end
