@@ -138,6 +138,7 @@ public partial class Form1 : Form
             // p.Arguments = "example.txt";
             p.Start();
             // Результат работы консольного приложения
+            p.StandardInput.WriteLine(this.Text);
             p.StandardInput.WriteLine(code.Text);
             // Дождаться завершения запущенного приложения
             p.WaitForExit();

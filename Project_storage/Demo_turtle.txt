@@ -1,4 +1,6 @@
 blue turtle
+#change background
+bg black
 #turn to 90 degree
 t[{l}6]
 #write line

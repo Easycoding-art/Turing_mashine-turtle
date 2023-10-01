@@ -165,6 +165,9 @@ class Interpreter() :
             reset = line.replace("\n", "").split(' ')
             turtle.pencolor(reset[1])
             turtle.shape(reset[2])
+        elif line.split(" ")[0] == "bg" :
+            reset = line.replace("\n", "").split(' ')
+            turtle.bgcolor(reset[1])
         elif line.split(" ")[0] == "to" :
             position = line.replace("\n", "").split(' ')
             k = 1
@@ -269,6 +272,8 @@ class Interpreter() :
                 self.assignment(line)
     
     def start(self) :
+        title = input()
+        turtle.title(title)
         self.commands = []
         text = "w"
         while text != "end" :
