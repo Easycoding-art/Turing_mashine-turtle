@@ -51,7 +51,9 @@ class Interpreter() :
                         sign = commands[j]
                     index = commands.index(sign, j+1, len(commands))
                     word = ''.join(commands[j : index +1])
-                    word = word.replace('"', "")
+                    l = list(word)
+                    if l[0] == '"' and l[len(l)-1] == '"' :
+                        word = word.replace('"', "")
                     new.append(word)
                     a = j
                     b = index
@@ -236,12 +238,12 @@ class Interpreter() :
                         func = sp[1].replace(']', '')
                         self.perform_commands(func + '\n')
                     break
-        elif list(line)[0] not in '<>{}~^rl#&w()|' and ':' in line :
+        elif list(line)[0] not in '<>{}~^rl#&w()|' and ';' in line and '[' not in line :
             line = line.replace('\n', '')
             all_commands = []
             all_commands.extend(self.get_from_libraries())
             all_commands.extend(self.commands)
-            arg_values = line.split(':', 1)[1].split(',')
+            arg_values = line.split(';', 1)[1].split(',')
             for comm in all_commands:
                 if list(line)[0] == list(comm)[0] and len(list(comm)) > 0:
                     comm = comm.replace('\n', '')
@@ -250,6 +252,23 @@ class Interpreter() :
                         announcement = sp[1].split(']')
                         func = announcement[0]
                         args = announcement[1].split(',')
+                        p = 0
+                        arr = []
+                        for n in range(len(arg_values)) :
+                            if (list(arg_values[n])[0] == '"' and 
+                                list(arg_values[n])[len(arg_values[n]) - 1] != '"') :
+                                p = n
+                                k = n+1
+                                while list(arg_values[k])[len(arg_values[k]) - 1] != '"' :
+                                    k += 1
+                                    n+=1
+                                arr.append(','.join(arg_values[p:k+1]))
+                            elif (list(arg_values[n])[0] != '"' and 
+                                list(arg_values[n])[len(arg_values[n]) - 1] == '"') :
+                                pass
+                            else :
+                                arr.append(arg_values[n])
+                        arg_values = arr
                         for a in range(len(args)) :
                             if arg_values[a] in self.value_dict :
                                 replacement = self.value_dict.get(arg_values[a])
@@ -268,7 +287,7 @@ class Interpreter() :
                         self.perform_commands(func + '\n')
                     break
         else :
-            if '=' in line :
+            if '=' in line and '[' not in line:
                 self.assignment(line)
     
     def start(self) :

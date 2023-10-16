@@ -1,7 +1,10 @@
 blue arrow
 #square with side n
 S[{{l}6{>}n}4]n
+#rectangle with sides a and b
+A[{{l}6{>}a{l}6{>}b}2]a,b
 #round
-R[{{>l}3}10]
+R[{>l}n]n
 #Create something in (x,y) using f function
 F["to x y"f]x,y,f
+end
