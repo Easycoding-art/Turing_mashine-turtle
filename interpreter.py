@@ -157,15 +157,23 @@ class Interpreter() :
         result = []
         for lib in self.libraries :
             file = open('Project_storage/' + lib + '.txt', 'r')
-            lines = file.readlines()
-            result.extend(lines)
+            lines = list(filter(lambda x: list(x)[0] != "#" and list(x)[0] != "\n",
+                                file.readlines()))
+            cleared_lines = []
+            block = 0          
+            for s in lines :
+                if ''.join(list(s)[0:2]) == '//' :
+                    block += 1
+                elif ''.join(list(s)[0:2]) == '\\' and block > 0 :
+                    block -= 1
+                if block == 0 :
+                    cleared_lines.append(s)
+            result.extend(cleared_lines)
             file.close()
         return result
 
     def analyze(self, line) :
-        if list(line)[0] == "#" or list(line)[0] == "\n" :
-            pass
-        elif line.split(" ")[0] =='include' :
+        if line.split(" ")[0] =='include' :
             parse = line.replace("\n", "").split(' ')
             self.libraries.append(parse[1])
         elif line.split(" ")[0] == "set" :
@@ -303,11 +311,11 @@ class Interpreter() :
         block = 0
         while text != "end" :
             text = input()
-            if text == '//' :
+            if ''.join(list(text)[0:2]) == '//' :
                 block += 1
-            elif text == '\\' and block > 0 :
+            elif ''.join(list(text)[0:2]) == '\\' and block > 0 :
                 block -= 1
-            if block == 0 :
+            if block == 0 and list(text)[0] != "#" and list(text)[0] != "\n" :
                 self.commands.append(text)
         start = self.commands[0].replace("\n", "").split(' ')
         turtle.pencolor(start[0])
@@ -317,5 +325,6 @@ class Interpreter() :
             self.analyze(line)
         turtle.done()
 
-project = Interpreter()
-project.start()
+if __name__ == '__main__' :
+    project = Interpreter()
+    project.start()
