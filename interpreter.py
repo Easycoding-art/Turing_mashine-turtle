@@ -82,8 +82,10 @@ class Interpreter() :
             sys.exit(1)
         command = command.replace("now.x", str(int(turtle.xcor())))
         command = command.replace("now.y", str(int(turtle.ycor())))
-        quant = command.split(":")[0]
-        action = command.split(":")[1]
+        struct = command.split(":")
+        quant = struct[0]
+        action = struct[1]
+        action2 = struct[2]
         while "." in quant :
             symbols = list(quant)
             number = symbols.index('.')
@@ -101,14 +103,17 @@ class Interpreter() :
                 real = real + self.value_dict.get(arr[i])
         if eval(real) == True :
             self.perform_commands(action[1:]+"\n")
+        elif eval(real) == False or action2[1:] == 'pass' :
+            self.perform_commands(action2[1:]+"\n")
 
     def condition_cycle(self, command) :
         if ',' in command or ':' not in command :
             sys.exit(1)
         command = command.replace("now.x", str(int(turtle.xcor())))
         command = command.replace("now.y", str(int(turtle.ycor())))
-        quant = command.split(":")[0]
-        action = command.split(":")[1]
+        struct = command.split(":")
+        quant = struct[0]
+        action = struct[1]
         while "." in quant :
             symbols = list(quant)
             number = symbols.index('.')
@@ -295,9 +300,15 @@ class Interpreter() :
         turtle.title(title)
         self.commands = []
         text = "w"
+        block = 0
         while text != "end" :
             text = input()
-            self.commands.append(text)
+            if text == '//' :
+                block += 1
+            elif text == '\\' and block > 0 :
+                block -= 1
+            if block == 0 :
+                self.commands.append(text)
         start = self.commands[0].replace("\n", "").split(' ')
         turtle.pencolor(start[0])
         turtle.shape(start[1])
